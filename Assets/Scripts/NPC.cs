@@ -8,14 +8,13 @@ using UnityEngine.AI;
 public abstract class NPC : MonoBehaviour
 {
     private NavMeshAgent agent;
-    public float maxHumor, maxSeriedad,seriedadActual,humorActual;
     public EXPRESION expressionActual;
    // se mueve hacia una pos
     public void CambiaDeExpresion()
     {
-        if(humorActual > 70) 
+        if(GameLoop.instance.humorActual > 70) 
         expressionActual = EXPRESION.Riendo;
-        else if(seriedadActual > 70) expressionActual = EXPRESION.Serio;
+        else if(GameLoop.instance.seriedadActual > 70) expressionActual = EXPRESION.Serio;
 
         print("expresion npc: "+ expressionActual);
     }

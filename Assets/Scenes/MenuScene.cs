@@ -12,7 +12,7 @@ public class MenuScene : MonoBehaviour
 
     public void JugarJuego()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
 
