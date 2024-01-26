@@ -6,4 +6,5 @@ public class GameLoop : MonoBehaviour
 {
    // sistema publico 
    // public GameObject Player
+
 }
