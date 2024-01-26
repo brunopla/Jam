@@ -22,6 +22,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Movimiento();
+    }
+
+    void Movimiento()
+    {
         _inputVector.x = Input.GetAxis("Horizontal");
         _inputVector.z = Input.GetAxis("Vertical");
 
