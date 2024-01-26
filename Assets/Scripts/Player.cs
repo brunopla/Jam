@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
     private CharacterController _cc;
     private Vector3 _inputVector;
     [SerializeField] private float _velocidad;
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Instance = this;
         _cc = GetComponent<CharacterController>();
         if(_cc == null)
         {
