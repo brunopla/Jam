@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody))]
+
 public abstract class ItemBase : MonoBehaviour
 {
-    // public abstract void Interaccion()
-    // {
-    //     Debug.Log("Interaccion");
-    // }
+    public abstract void Interaccion();
 
-    // void OnTriggerEnter(Collider other);
-    // {
-    //     if(other.transform.tag == "Player")
-    //     {
-    //         Interaccion();
-    //     }
-    // }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Interaccion();
+            Destroy(gameObject);
+        }
+        
+    }
+    
 }
