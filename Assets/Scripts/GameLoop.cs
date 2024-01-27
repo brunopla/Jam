@@ -1,5 +1,7 @@
 using DG.Tweening;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,7 +19,7 @@ public class GameLoop : MonoBehaviour
 
     public bool tieneSalvavidas; // el item lo activa
     public Image panelPerder;
-    [SerializeField] Publico publico;
+    public  Publico publico;
     private void Awake()
     {
         instance = this;
@@ -26,19 +28,39 @@ public class GameLoop : MonoBehaviour
     public IEnumerator Start()
     {
         publico.GenerarPublico(10);
+        List<NPC> npcsEnEscena = new();
+        publico.personasPublico.ForEach(x => npcsEnEscena.Add(x.GetComponent<NPC>()));
         Player.instance._velocidad = 0;
         yield return new WaitForSeconds(tiempoCinematica);
-        Player.instance._velocidad = 6;
+        Player.instance._velocidad = 5.4f;
+        StartCoroutine(CicloOleadas());
         while (true)
         {
             yield return new WaitForSeconds(3);
 
             humorActual += humorMult; 
+
             seriedadActual += seriedadMult;
+
+            npcsEnEscena.ForEach(e => e.CambiaDeExpresion());
             UISystem.instance.UpdateUI();
             if (seriedadActual >= maxSeriedad || humorActual >= maxHumor) StartCoroutine(Perder());
         }        
     }
+    // determina la activacion de los miniuegos, ademas de los lanzamientos de items a escena
+    public float tiempoEntreOleadas = 10;
+    public int cantidadDeOleadas;
+    private IEnumerator CicloOleadas()
+    {
+        while(true)
+        {
+            yield return new WaitForSecondsRealtime(tiempoEntreOleadas);
+            // lanzar minijuegos dependiendo de la cantidad de oleadas jugadas
+            // lanzar items
+            publico._lanzarItemScr.Lanzar();
+        }
+    }
+
     public IEnumerator Perder()
     {
         if(tieneSalvavidas)

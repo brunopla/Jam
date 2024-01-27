@@ -5,12 +5,16 @@ using UnityEngine;
 using UnityEngine.AI;
 // los npc salen hasta el escenario
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Animator))]
 public abstract class NPC : MonoBehaviour
 {
     private NavMeshAgent agent;
+    public Animator animator;
     public EXPRESION expressionActual;
-   // se mueve hacia una pos
-    public void CambiaDeExpresion()
+   /// <summary>
+   /// Usar en GameLoop.cs para actualizar el estado de animo de los npc
+   /// </summary>
+    public virtual void CambiaDeExpresion()
     {
         if(GameLoop.instance.humorActual > (GameLoop.instance.maxHumor/2 + GameLoop.instance.maxHumor/ 4 )) 
         expressionActual = EXPRESION.Riendo;
@@ -19,6 +23,18 @@ public abstract class NPC : MonoBehaviour
 
         // instanciar emoticon con expresion
         print("expresion npc: "+ expressionActual);
+
+        // cambiar animacion 
+        switch (expressionActual)
+        {
+            case EXPRESION.Riendo: animator.Play("risa") ;break;
+                case EXPRESION.Serio: animator.Play("enojo") ;break;
+            case EXPRESION.Normal: animator.Play("idle"); break;
+            case EXPRESION.Aburrido: animator.Play("tirar");
+                GameLoop.instance.publico._lanzarItemScr.Lanzar();
+                break; 
+        }
+        
     }
     public void MoverA(Transform posAMover)
     {
@@ -28,6 +44,7 @@ public abstract class NPC : MonoBehaviour
     }
     private void Start()
     {
+        transform.LookAt(Camera.main.transform.position);
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = false;
         //MoverA(Player.Instance.transform);

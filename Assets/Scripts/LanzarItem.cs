@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LanzarItem : MonoBehaviour
@@ -19,6 +20,6 @@ public class LanzarItem : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         int randomIndex = Random.Range(0, _personasPublico.Count);
-        Instantiate(_itemsPrefabs[Random.Range(0, 3)], _personasPublico[randomIndex].transform.position + Vector3.up, Quaternion.identity);
+        Instantiate(_itemsPrefabs[Random.Range(0, _itemsPrefabs.Count())], _personasPublico[randomIndex].transform.position + Vector3.up, Quaternion.identity);
     }
 }

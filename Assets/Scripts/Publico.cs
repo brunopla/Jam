@@ -8,7 +8,7 @@ using UnityEngine;
         public List<GameObject> personasPublico;
         public List<GameObject> prefabsPersonasPublico;
         public List<BoxCollider> ubicacionesPublico;
-        [SerializeField] private LanzarItem _lanzarItemScr;
+        public LanzarItem _lanzarItemScr;
         public void GenerarPublico(int cantidad)
         {
         print("generando publico");

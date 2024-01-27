@@ -42,11 +42,12 @@ public abstract class ItemBase : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+
+                AudioSystem.instance.PonerSonido("choqueItemPlayer");
             if (_moviendose)
             {
                 Player.instance._animator.SetTrigger("ataqueRecibido");
                 Player.instance.transform.DOShakePosition(.35f, strength: .5f);
-                AudioSystem.instance.PonerSonido("choqueItemPlayer");
             }
             Interaccion();
             Destroy(gameObject);
