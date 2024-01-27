@@ -10,12 +10,16 @@ public class Player : MonoBehaviour
     public float _velocidad;
     [SerializeField] private float _velocidadRotacion;
     public  Animator _animator;
+    private void Awake()
+    {
+        instance = this;
+            
+    }
 
     void Start()
     {
         _yInicial = transform.position.y;
 
-        instance = this;
         _cc = GetComponent<CharacterController>();
         if(_cc == null)
         {

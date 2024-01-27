@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &473174531022699210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 734120918848483861}
+  - component: {fileID: 60678432173125772}
+  m_Layer: 0
+  m_Name: LanzarItem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &734120918848483861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473174531022699210}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 913302910429618095}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &60678432173125772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473174531022699210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d696ac0eed2617d4abc67531df5f4645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _personasPublico: []
+  _itemsPrefabs:
+  - {fileID: 5491590533703494665, guid: 899dc4a909fe07f43a2849cff8e9c808, type: 3}
+  - {fileID: 5491590533703494665, guid: 355da8486fc13d24fb99a927de6f6b4f, type: 3}
+  - {fileID: 5491590533703494665, guid: 8d62e08599f01cb4399284f451538bb3, type: 3}
 --- !u!1 &2452165735214708821
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,8 +77,8 @@ Transform:
   m_GameObject: {fileID: 2452165735214708821}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7130459, z: -0, w: 0.7011174}
-  m_LocalPosition: {x: -7.05, y: -1.09, z: -2.35}
-  m_LocalScale: {x: 8.220042, y: 1, z: 1}
+  m_LocalPosition: {x: -10.43, y: -0.68000007, z: -3.97}
+  m_LocalScale: {x: 11.834156, y: 1, z: 2.0242}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 913302910429618095}
@@ -138,6 +187,7 @@ Transform:
   - {fileID: 2676293313491340254}
   - {fileID: 3549353950496162200}
   - {fileID: 6160917653143488734}
+  - {fileID: 734120918848483861}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5337764415372368454
@@ -154,13 +204,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personasPublico: []
   prefabsPersonasPublico:
-  - {fileID: 6751173604277579021, guid: 4f6c87c035704124dbbd504727599871, type: 3}
-  - {fileID: 7988279725165396073, guid: aa921daad27232d4c83169e7ddb61552, type: 3}
-  - {fileID: 1024244115709749889, guid: 9085fd7b9095449479928609d4571e1b, type: 3}
+  - {fileID: 643423432580109426, guid: e56b5db8a140f9449b29a9d7123cca10, type: 3}
+  - {fileID: 1456660746090371463, guid: 968a22c71b182ad48b044b8f59d0e22c, type: 3}
+  - {fileID: 586334868723144194, guid: 5517b8614e4067f44aae688b25b6c832, type: 3}
   ubicacionesPublico:
   - {fileID: 1698759477927877808}
   - {fileID: 5421479210136820469}
   - {fileID: 1352786510658537419}
+  _lanzarItemScr: {fileID: 60678432173125772}
 --- !u!1 &4076398060647293721
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,8 +240,8 @@ Transform:
   m_GameObject: {fileID: 4076398060647293721}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7017816, z: -0, w: 0.7123922}
-  m_LocalPosition: {x: 4.4799995, y: -1.09, z: -2.38}
-  m_LocalScale: {x: 8.220042, y: 1, z: 1}
+  m_LocalPosition: {x: 6.88, y: -0.68, z: -8.61}
+  m_LocalScale: {x: 12.41171, y: 1, z: 1.679588}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 913302910429618095}
@@ -294,8 +345,8 @@ Transform:
   m_GameObject: {fileID: 7609240062424926398}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.37, y: -1.09, z: 1.43}
-  m_LocalScale: {x: 12.752754, y: 1, z: 1}
+  m_LocalPosition: {x: -1.37, y: -0.52000004, z: 0.98}
+  m_LocalScale: {x: 16.283993, y: 1, z: 2.0169}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 913302910429618095}
