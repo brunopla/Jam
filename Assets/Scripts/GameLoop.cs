@@ -42,4 +42,28 @@ public class GameLoop : MonoBehaviour
         SceneManager.LoadScene(0);
         yield break;
     }
+
+    public void IncrementarHumor(int cantidad)
+    {
+        if((humorActual + cantidad) <= maxHumor)
+        {
+            humorActual += cantidad;
+        }
+        else
+        {
+            humorActual = maxHumor;
+        }
+    }
+
+    public void IncrementarSeriedad(int cantidad)
+    {
+        if((seriedadActual + cantidad) <= maxSeriedad)
+        {
+            seriedadActual += cantidad;
+        }
+        else
+        {
+            seriedadActual = maxSeriedad;
+        }
+    }
 }

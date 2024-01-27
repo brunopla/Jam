@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ItemPowerSeriedad : ItemBase
 {
-    private float _cantidad = 10;
+    private int _cantidad = 10;
 
     public override void Interaccion()
     {
         _cantidad += Random.Range(0, 30);
+        GameLoop.instance.IncrementarSeriedad(_cantidad);
         Debug.Log("Item Powerup Seriedad");
     }
 }
