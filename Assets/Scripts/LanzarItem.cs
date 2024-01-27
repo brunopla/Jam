@@ -9,14 +9,16 @@ public class LanzarItem : MonoBehaviour
     public void PopulatePublic(List<GameObject> list)
     {
         _personasPublico = list;
-        StartCoroutine(Lanzamiento());
+        //StartCoroutine(Lanzamiento());
     }
-
+    /// <summary>
+    /// Hace que el publico lance un item de forma aleatoria
+    /// </summary>
+    public void Lanzar () => StartCoroutine(Lanzamiento());
     IEnumerator Lanzamiento()
     {
         yield return new WaitForSeconds(4);
         int randomIndex = Random.Range(0, _personasPublico.Count);
         Instantiate(_itemsPrefabs[Random.Range(0, 3)], _personasPublico[randomIndex].transform.position + Vector3.up, Quaternion.identity);
-        StartCoroutine(Lanzamiento());
     }
 }

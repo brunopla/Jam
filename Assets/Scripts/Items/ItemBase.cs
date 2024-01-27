@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public abstract class ItemBase : MonoBehaviour
 {
     private Rigidbody _rb;
     private bool _moviendose = true;
+    Vector3 posicionDestino;
     public abstract void Interaccion();
     
     void Start()
@@ -18,6 +20,7 @@ public abstract class ItemBase : MonoBehaviour
         {
             Debug.LogError("Rigidbody NULL");
         }
+        posicionDestino = Player.instance.transform.position;
         StartCoroutine(DejarDeMoverse());
     }
 
@@ -25,7 +28,7 @@ public abstract class ItemBase : MonoBehaviour
     {
         if(_moviendose)
         {
-            _rb.AddForce((Player.instance.transform.position - this.transform.position) * 2);
+            _rb.AddForce((posicionDestino - this.transform.position) * 2);
         }
     }
 
@@ -39,6 +42,12 @@ public abstract class ItemBase : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            if (_moviendose)
+            {
+                Player.instance._animator.SetTrigger("ataqueRecibido");
+                Player.instance.transform.DOShakePosition(.35f, strength: .5f);
+                AudioSystem.instance.PonerSonido("choqueItemPlayer");
+            }
             Interaccion();
             Destroy(gameObject);
         }

@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
     public static Player instance;
     private CharacterController _cc;
-    private Vector3 _inputVector;
     private float _yInicial;
-    [SerializeField] private float _velocidad;
+    public float _velocidad;
     [SerializeField] private float _velocidadRotacion;
+    public  Animator _animator;
 
     void Start()
     {
@@ -28,12 +27,17 @@ public class Player : MonoBehaviour
     {
         Movimiento();
     }
-
     void Movimiento()
     {
+        Vector3 _inputVector = Vector3.zero;
+       
         _inputVector.x = Input.GetAxis("Horizontal");
         _inputVector.z = Input.GetAxis("Vertical");
 
+
+        if (_inputVector != Vector3.zero) _animator.SetBool("isRun", true);
+        else _animator.SetBool("isRun", false);
+                
         _cc.Move(_inputVector.normalized * _velocidad * Time.deltaTime);
 
         if(_inputVector != Vector3.zero)
@@ -42,7 +46,7 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards
                 (transform.rotation, toRotation, _velocidadRotacion * Time.deltaTime);
         }
-        
+
         transform.position = new Vector3(transform.position.x, _yInicial, transform.position.z);
     }
 }
