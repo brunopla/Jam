@@ -16,17 +16,20 @@ public abstract class NPC : MonoBehaviour
         expressionActual = EXPRESION.Riendo;
         else if(GameLoop.instance.seriedadActual > 70) expressionActual = EXPRESION.Serio;
 
+        // instanciar emoticon con expresion
         print("expresion npc: "+ expressionActual);
     }
     public void MoverA(Transform posAMover)
     {
+        agent.enabled = true;
         agent.destination = posAMover.position;
         agent.Move(Vector3.one);
     }
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        MoverA(Player.Instance.transform);
+        agent.enabled = false;
+        //MoverA(Player.Instance.transform);
     }
 }
 public enum EXPRESION
