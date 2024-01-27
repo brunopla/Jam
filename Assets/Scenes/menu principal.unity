@@ -888,11 +888,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 106035839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -673.03015, y: -390.3928}
-  m_SizeDelta: {x: 429.9398, y: 218.7856}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.00012207031, y: 40.214478}
+  m_SizeDelta: {x: 501.94, y: 310.6862}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &2063547105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,7 +919,12 @@ MonoBehaviour:
 
     Bruno Platoni
 
-    Roman'
+    Roman Fuentes
+
+    Elias
+    Villaroel
+
+    Martin Herrera'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
