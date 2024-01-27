@@ -16,4 +16,5 @@ public class UISystem : MonoBehaviour
         barraHumorFill.fillAmount = GameLoop.instance.humorActual / GameLoop.instance.maxHumor; 
         barraHumorFill.fillAmount = GameLoop.instance.seriedadActual/ GameLoop.instance.seriedadActual; 
     }
+    
 }

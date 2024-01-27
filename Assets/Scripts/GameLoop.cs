@@ -12,23 +12,28 @@ public class GameLoop : MonoBehaviour
     public float humorActual = 500, seriedadActual = 500;
     public float humorMult = 1, seriedadMult = 1;
 
-    public  float maxHumor = 100, maxSeriedad = 100;
+    public  float maxHumor = 1000, maxSeriedad = 1000;
     public float multiplicadorRisa = 1, multiplicadorSeriedad=1;
 
     public Image panelPerder;
     [SerializeField] Publico publico;
-
-    public IEnumerator Start()
+    private void Awake()
     {
         instance = this;
+        
+    }
+    public IEnumerator Start()
+    {
         publico.GenerarPublico(10);
         yield return new WaitForSeconds(tiempoCinematica);
         //player.velocidad = 10;
         while (true)
         {
             yield return new WaitForSeconds(3);
+
             humorActual -= humorMult; 
             seriedadActual += seriedadMult;
+            UISystem.instance.UpdateUI();
             if (seriedadActual <= maxSeriedad || humorActual >= maxHumor) StartCoroutine(Perder());
         }        
     }

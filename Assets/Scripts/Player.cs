@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public static Player Instance;
+    public static Player instance;
     private CharacterController _cc;
     private Vector3 _inputVector;
     private float _yInicial;
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     {
         _yInicial = transform.position.y;
 
-        Instance = this;
+        instance = this;
         _cc = GetComponent<CharacterController>();
         if(_cc == null)
         {
@@ -38,9 +38,10 @@ public class Player : MonoBehaviour
         if(_inputVector != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(_inputVector, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _velocidadRotacion * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards
+                (transform.rotation, toRotation, _velocidadRotacion * Time.deltaTime);
         }
-
+        
         transform.position = new Vector3(transform.position.x, _yInicial, transform.position.z);
     }
 }
