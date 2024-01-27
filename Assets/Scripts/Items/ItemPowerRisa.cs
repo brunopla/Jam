@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ItemPowerRisa : ItemBase
 {
-    public float cantidad=10;
+    [SerializeField] private float _cantidad = 10;
     public override void Interaccion()
     {
-        cantidad += Random.Range(0, 30); 
-        print("efecto powe risa");
+        _cantidad += Random.Range(0, 30);
+        print("efecto power risa");
     }
 
 

@@ -8,9 +8,9 @@ public class GameLoop : MonoBehaviour
 {
     public static GameLoop instance;
     public float tiempoCinematica;
-    public const float maxHumor = 100, maxSeriedad = 100;
-    public float humorActual = 50, seriedadActual = 50;
-    public float multiplicadorRisa = 1, multiplicadorSeriedad=1;
+    public const float maxHumor = 1000, maxSeriedad = 1000;
+    public float humorActual = 500, seriedadActual = 500;
+    public float humorMult = 1, seriedadMult = 1;
     public Image panelPerder;
     [SerializeField] Publico publico;
 
@@ -23,9 +23,9 @@ public class GameLoop : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(3);
-            humorActual--;
-            seriedadActual++;
-            if (seriedadActual >= maxSeriedad || humorActual >= maxHumor) StartCoroutine(Perder());
+            humorActual -= humorMult; 
+            seriedadActual += seriedadMult;
+            if (seriedadActual <= maxSeriedad || humorActual >= maxHumor) StartCoroutine(Perder());
         }        
     }
     public IEnumerator Perder()
