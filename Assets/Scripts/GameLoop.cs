@@ -34,7 +34,7 @@ public class GameLoop : MonoBehaviour
             humorActual -= humorMult; 
             seriedadActual += seriedadMult;
             UISystem.instance.UpdateUI();
-            if (seriedadActual <= maxSeriedad || humorActual >= maxHumor) StartCoroutine(Perder());
+            if (seriedadActual >= maxSeriedad || humorActual >= maxHumor) StartCoroutine(Perder());
         }        
     }
     public IEnumerator Perder()

@@ -19,7 +19,7 @@ using UnityEngine;
                 ,0,
                 Random.Range(ubicacion.bounds.max.z, ubicacion.bounds.min.z)) ;
 
-               var persona =  Instantiate(prefabsPersonasPublico[Random.Range(0, prefabsPersonasPublico.Count)], pos, Quaternion.LookRotation(Player.Instance.transform.position));
+               var persona =  Instantiate(prefabsPersonasPublico[Random.Range(0, prefabsPersonasPublico.Count)], pos, Quaternion.LookRotation(Player.instance.transform.position));
                 personasPublico.Add(persona);
             }
             if(_lanzarItemScr != null)

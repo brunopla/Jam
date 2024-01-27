@@ -25,7 +25,7 @@ public abstract class ItemBase : MonoBehaviour
     {
         if(_moviendose)
         {
-            _rb.AddForce((Player.Instance.transform.position - this.transform.position) * 2);
+            _rb.AddForce((Player.instance.transform.position - this.transform.position) * 2);
         }
     }
 
