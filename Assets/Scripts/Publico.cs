@@ -8,6 +8,7 @@ using UnityEngine;
         public List<GameObject> personasPublico;
         public List<GameObject> prefabsPersonasPublico;
         public List<BoxCollider> ubicacionesPublico;
+        [SerializeField] private LanzarItem _lanzarItemScr;
         public void GenerarPublico(int cantidad)
         {
         print("generando publico");
@@ -18,9 +19,14 @@ using UnityEngine;
                 ,0,
                 Random.Range(ubicacion.bounds.max.z, ubicacion.bounds.min.z)) ;
 
-               var persona =  Instantiate(prefabsPersonasPublico[Random.Range(0, prefabsPersonasPublico.Count)], pos, Quaternion.identity);
+               var persona =  Instantiate(prefabsPersonasPublico[Random.Range(0, prefabsPersonasPublico.Count)], pos, Quaternion.LookRotation(Player.Instance.transform.position));
                 personasPublico.Add(persona);
-            } 
+            }
+            if(_lanzarItemScr != null)
+            {
+                _lanzarItemScr.PopulatePublic(personasPublico);
+            }
+
         }
         
     }
