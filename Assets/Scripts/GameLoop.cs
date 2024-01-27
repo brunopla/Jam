@@ -8,9 +8,15 @@ public class GameLoop : MonoBehaviour
 {
     public static GameLoop instance;
     public float tiempoCinematica;
+<<<<<<< Updated upstream
     public const float maxHumor = 1000, maxSeriedad = 1000;
     public float humorActual = 500, seriedadActual = 500;
     public float humorMult = 1, seriedadMult = 1;
+=======
+    public  float maxHumor = 100, maxSeriedad = 100;
+    public float humorActual = 50, seriedadActual = 50;
+    public float multiplicadorRisa = 1, multiplicadorSeriedad=1;
+>>>>>>> Stashed changes
     public Image panelPerder;
     [SerializeField] Publico publico;
 

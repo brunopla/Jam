@@ -13,6 +13,7 @@ public class UISystem : MonoBehaviour
     }
     public void UpdateUI()
     {
-       // barraHumorFill.fillAmount = 
+        barraHumorFill.fillAmount = GameLoop.instance.humorActual / GameLoop.instance.maxHumor; 
+        barraHumorFill.fillAmount = GameLoop.instance.seriedadActual/ GameLoop.instance.seriedadActual; 
     }
 }
