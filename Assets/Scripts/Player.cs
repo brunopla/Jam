@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
     public static Player instance;
@@ -33,7 +34,7 @@ public class Player : MonoBehaviour
         _inputVector.x = Input.GetAxis("Horizontal");
         _inputVector.z = Input.GetAxis("Vertical");
 
-        _cc.Move(_inputVector * _velocidad * Time.deltaTime);
+        _cc.Move(_inputVector.normalized * _velocidad * Time.deltaTime);
 
         if(_inputVector != Vector3.zero)
         {
