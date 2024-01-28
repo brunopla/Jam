@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float _velocidad;
     [SerializeField] private float _velocidadRotacion;
     public  Animator _animator;
+    public GameObject pato, falda, capa;
     private void Awake()
     {
         instance = this;
