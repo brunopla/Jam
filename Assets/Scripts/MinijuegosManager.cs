@@ -45,11 +45,11 @@ public class MinijuegosManager : MonoBehaviour
                 yield return new WaitForSecondsRealtime(0.01f);
                    if(haCliqueado)
                    {
-                       
+                     //comprobar que zona se ha clickeado      
                    }
                    else
                    {
-                        
+                     
                    }
             }
         }

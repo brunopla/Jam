@@ -27,11 +27,12 @@ public class GameLoop : MonoBehaviour
     }
     public IEnumerator Start()
     {
-        publico.GenerarPublico(10);
+        publico.GenerarPublico(15);
         List<NPC> npcsEnEscena = new();
         publico.personasPublico.ForEach(x => npcsEnEscena.Add(x.GetComponent<NPC>()));
         Player.instance._velocidad = 0;
-        yield return new WaitForSeconds(tiempoCinematica);
+        UISystem.instance._MandarMensajeFeedback("Usa el teclado para moverte");
+       // yield return new WaitForSeconds(tiempoCinematica);
         Player.instance._velocidad = 5.4f;
         StartCoroutine(CicloOleadas());
         while (true)
@@ -61,9 +62,16 @@ public class GameLoop : MonoBehaviour
                 int r2 = UnityEngine.Random.Range(0, 10);
                 if (r2 > 5) MinijuegosManager.Instance.MinijuegoCompletarLaMitad();
                 //else MinijuegosManager.Instance.MinijuegoBarra();
+                yield return new WaitForSeconds(Mathf.Abs(10 - cantidadDeOleadas));
                 }
             publico._lanzarItemScr.Lanzar();
             cantidadDeOleadas++;
+            if (cantidadDeOleadas >= 6)
+            {
+                UISystem.instance._MandarMensajeFeedback("Has ganado!");
+                yield return new WaitForSecondsRealtime(3);
+                SceneManager.LoadScene(0);
+            }
         }
     }
 

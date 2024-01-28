@@ -10,6 +10,7 @@ public class ItemPowerSalvador : ItemBase
         //GameLoop.instance.seriedadActual = GameLoop.instance.maxSeriedad / 2;
         GameLoop.instance.tieneSalvavidas = true;
         Debug.Log("Item Power Salvador");
-        Destroy(gameObject);
+        Player.instance.pato.SetActive(true);
+        UISystem.instance.MandarMensajeFeedback("Item salvador obtenido");
     }
 }

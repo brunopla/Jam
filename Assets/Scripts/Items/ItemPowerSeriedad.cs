@@ -11,5 +11,7 @@ public class ItemPowerSeriedad : ItemBase
         _cantidad += Random.Range(0, 30);
         GameLoop.instance.IncrementarSeriedad(_cantidad);
         Debug.Log("Item Powerup Seriedad");
+        Player.instance.capa.SetActive(true);
+        UISystem.instance.MandarMensajeFeedback("Item seriedad obtenido");
     }
 }

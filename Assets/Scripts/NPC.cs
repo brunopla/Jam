@@ -6,11 +6,14 @@ using UnityEngine.AI;
 // los npc salen hasta el escenario
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 public abstract class NPC : MonoBehaviour
 {
     private NavMeshAgent agent;
     public Animator animator;
+    public AudioSource audioSource;
     public EXPRESION expressionActual;
+    public AudioClip clipRisa;
    /// <summary>
    /// Usar en GameLoop.cs para actualizar el estado de animo de los npc
    /// </summary>
@@ -27,7 +30,7 @@ public abstract class NPC : MonoBehaviour
         // cambiar animacion 
         switch (expressionActual)
         {
-            case EXPRESION.Riendo: animator.Play("risa") ;break;
+            case EXPRESION.Riendo: animator.Play("risa"); audioSource.PlayOneShot(clipRisa) ;break;
                 case EXPRESION.Serio: animator.Play("enojo") ;break;
             case EXPRESION.Normal: animator.Play("idle"); break;
             case EXPRESION.Aburrido: animator.Play("tirar");
@@ -44,6 +47,7 @@ public abstract class NPC : MonoBehaviour
     }
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         transform.LookAt(Camera.main.transform.position);
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = false;

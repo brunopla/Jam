@@ -10,6 +10,8 @@ public class ItemPowerRisa : ItemBase
         _cantidad += Random.Range(0, 30);
         GameLoop.instance.IncrementarHumor(_cantidad);
         print("efecto power risa");
+        Player.instance.falda.SetActive(true);
+        UISystem.instance.MandarMensajeFeedback("Item risa obtenido");
     }
 
 

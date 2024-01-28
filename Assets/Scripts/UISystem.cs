@@ -12,6 +12,7 @@ public class UISystem : MonoBehaviour
     private void Awake()
     {
         if (instance == null) instance = this;
+        colaDeMensajes = new Queue<string>();
     }
     public void UpdateUI()
     {
@@ -30,9 +31,15 @@ public class UISystem : MonoBehaviour
         if (colaDeMensajes.Count > 1) yield break;
         while(colaDeMensajes.Count > 0 )
         {
-            textFeedback.text = msj;
-            yield return new WaitForSecondsRealtime(msj.Length * .35f);
-            print($"duracion del mensaje:  {msj.Length * .35f}");
+            print("msj ui");
+            string _msj =  colaDeMensajes.Dequeue();
+            textFeedback.text = _msj;
+            textFeedback.DOColor(new Color(0, 0, 0, 1), .6f);
+            yield return new WaitForSecondsRealtime(_msj.Length * .35f);
+            print($"duracion del mensaje:  {_msj.Length * .35f}");
+            textFeedback.DOColor(new Color(0, 0, 0, 0), .6f);
+            yield return new WaitForSeconds(.6f);
+            textFeedback.text = "";
         }
     }
 }
