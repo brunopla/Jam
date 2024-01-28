@@ -34,17 +34,25 @@ public class MinijuegosManager : MonoBehaviour
             Debug.Log("Win Area Not Assigned");
         }
 
-        MinijuegoBarra();
     }
-
-    public void MinijuegoBarra()
-    {
-        //Se randomiza la posicion
-        //_winArea.localPosition = new Vector3(Random.Range(-100, 100), 0, 0);
-        //Es necesario crear un puntero o linea que vaya avanzando por la barra
-        //Si el usuario clickea, compara la posicion en x del puntero con la area de ganar para asegurarse de que este dentro del area
-        //Asignar los puntos si el puntero esta dentro del winArea
-    }
+    [SerializeField] Slider sliderMinijeugoBarra;
+    [SerializeField] bool haCliqueado;
+    public void MinijuegoBarra(float _tiempo) => StartCoroutine(_MinijuegoBarra(_tiempo));
+        IEnumerator _MinijuegoBarra(float tiempo)
+        {
+            for(float i = 0 ;i < 1; i += 0.01f)
+            {
+                yield return new WaitForSecondsRealtime(0.01f);
+                   if(haCliqueado)
+                   {
+                       
+                   }
+                   else
+                   {
+                        
+                   }
+            }
+        }
 
     [SerializeField] GameObject prefabButtonSeleccionChiste;
     public List<Chiste> listaDeChistes;
