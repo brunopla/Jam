@@ -43,7 +43,7 @@ public abstract class ItemBase : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
 
-                AudioSystem.instance.PonerSonido("choqueItemPlayer");
+                //AudioSystem.instance.PonerSonido("choqueItemPlayer");
             if (_moviendose)
             {
                 Player.instance._animator.SetTrigger("ataqueRecibido");

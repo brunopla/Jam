@@ -20,6 +20,9 @@ public class LanzarItem : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         int randomIndex = Random.Range(0, _personasPublico.Count);
-        Instantiate(_itemsPrefabs[Random.Range(0, _itemsPrefabs.Count())], _personasPublico[randomIndex].transform.position + Vector3.up, Quaternion.identity);
+        NPC target = _personasPublico[randomIndex].GetComponent<NPC>();
+        target.animator.Play("tirar");
+        // poner sonido de lanzamiento
+        Instantiate(_itemsPrefabs[Random.Range(0, _itemsPrefabs.Count())],target.transform.position + Vector3.up, Quaternion.identity);
     }
 }
