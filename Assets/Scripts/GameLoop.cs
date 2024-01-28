@@ -55,9 +55,15 @@ public class GameLoop : MonoBehaviour
         while(true)
         {
             yield return new WaitForSecondsRealtime(tiempoEntreOleadas);
-            // lanzar minijuegos dependiendo de la cantidad de oleadas jugadas
-            // lanzar items
+            int r = UnityEngine.Random.Range(1, 4) + cantidadDeOleadas;
+                for(int  i = 0; i < r; i++)
+                {
+                int r2 = UnityEngine.Random.Range(0, 10);
+                if (r2 > 5) MinijuegosManager.Instance.MinijuegoCompletarLaMitad();
+                //else MinijuegosManager.Instance.MinijuegoBarra();
+                }
             publico._lanzarItemScr.Lanzar();
+            cantidadDeOleadas++;
         }
     }
 
