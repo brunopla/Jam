@@ -25,7 +25,7 @@ public abstract class NPC : MonoBehaviour
             && GameLoop.instance.seriedadActual< GameLoop.instance.maxSeriedad ) expressionActual = EXPRESION.Serio;
 
         // instanciar emoticon con expresion
-        print("expresion npc: "+ expressionActual);
+       // print("expresion npc: "+ expressionActual);
 
         // cambiar animacion 
         switch (expressionActual)
